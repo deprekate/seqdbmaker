@@ -3,12 +3,12 @@ Scripts to create a sequence database
 
 
 
-'''
+```
 $ python3 download.py tailspike
-'''
+```
 
 The \*.tar.gz file will have lots of things that UniProt 'thinks' are tailspike:
-'''
+```
 $ zcat tailspike.fasta.gz | grep "^>" | head
 >sp|Q8CWC7|PIC_ECOL6 Serine protease pic autotransporter OS=Escherichia coli O6:H1 (strain CFT073 / ATCC 700928 / UPEC) OX=199310 GN=pic PE=3 SV=1
 >sp|P24328|PERT_BORPA Pertactin autotransporter OS=Bordetella parapertussis (strain 12822 / ATCC BAA-587 / NCTC 13253) OX=257311 GN=prn PE=3 SV=1
@@ -20,10 +20,10 @@ $ zcat tailspike.fasta.gz | grep "^>" | head
 >sp|Q9Y2G1|MYRF_HUMAN Myelin regulatory factor OS=Homo sapiens OX=9606 GN=MYRF PE=1 SV=3
 >sp|Q8X621|YDHQ_ECO57 Uncharacterized protein YdhQ OS=Escherichia coli O157:H7 OX=83334 GN=ydhQ PE=4 SV=1
 >sp|D2TV88|Y1121_CITRI Probable autotransporter ROD_p1121 OS=Citrobacter rodentium (strain ICC168) OX=637910 GN=ROD_p1121 PE=1 SV=1
-'''
+```
 
 So you have to clean the file using the script with INCLUDE words:
-'''
+```
 $ python3 clean.py tailspike.fasta.gz --include "tailspike|tail spike" | grep "^>" | head
 >tr|A0A7L8YR65|A0A7L8YR65_9VIRU Tailspike protein OS=Escherichia phage HF4s OX=2775262 GN=HF4s_0015 PE=4 SV=1
 >tr|A0A7G5CK66|A0A7G5CK66_9VIRU Tailspike OS=Mu-like cryoconite phage AB09 OX=2761371 PE=4 SV=1
@@ -35,11 +35,11 @@ $ python3 clean.py tailspike.fasta.gz --include "tailspike|tail spike" | grep "^
 >tr|A0A6C7I4K4|A0A6C7I4K4_SALPK Tailspike OS=Salmonella paratyphi A (strain AKU_12601) OX=554290 GN=SSPA2227 PE=4 SV=1
 >tr|A0A1W5DLM4|A0A1W5DLM4_9GAMM p22 tailspike protein head-binding protein OS=Serratia proteamaculans OX=28151 GN=SPRA44_360028 PE=4 SV=1
 >tr|A0A7H4L6T3|A0A7H4L6T3_9DELT Phage P22 tailspike protein like OS=Desulfovibrio sp. G11 OX=631220 GN=DSVG11_1924 PE=4 SV=1
-'''
+```
 
 
 You can also EXCLUDE words:
-'''
+```
 $ python3 clean.py tailspike.fasta.gz --include "tailspike|tail spike" --exclude "head-binding" | grep "^>" | head
 >tr|A0A7L8YR65|A0A7L8YR65_9VIRU Tailspike protein OS=Escherichia phage HF4s OX=2775262 GN=HF4s_0015 PE=4 SV=1
 >tr|A0A7G5CK66|A0A7G5CK66_9VIRU Tailspike OS=Mu-like cryoconite phage AB09 OX=2761371 PE=4 SV=1
@@ -51,5 +51,5 @@ $ python3 clean.py tailspike.fasta.gz --include "tailspike|tail spike" --exclude
 >tr|A0A7H4L6T3|A0A7H4L6T3_9DELT Phage P22 tailspike protein like OS=Desulfovibrio sp. G11 OX=631220 GN=DSVG11_1924 PE=4 SV=1
 >tr|A0A7H4L8Y2|A0A7H4L8Y2_9DELT Phage P22 tailspike protein OS=Desulfovibrio sp. G11 OX=631220 GN=DSVG11_2735 PE=4 SV=1
 >tr|A0A328TQW2|A0A328TQW2_9GAMM Tail spike protein OS=Candidatus Erwinia dacicola OX=252393 GN=ACZ87_00149 PE=4 SV=1
-'''
+```
 
